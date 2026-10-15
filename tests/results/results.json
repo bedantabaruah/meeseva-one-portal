@@ -1,0 +1,209 @@
+[
+  {
+    "id": "TC01",
+    "module": "Home",
+    "name": "Portal loads with correct title",
+    "expected": "Page title shows MeeSeva Life Services Portal",
+    "actual": "MeeSeva: Life Services Portal | Government of Telangana",
+    "status": "Pass",
+    "ms": 7
+  },
+  {
+    "id": "TC02",
+    "module": "Home",
+    "name": "Life stage grid renders",
+    "expected": "15 life stage tiles shown",
+    "actual": "15 tiles rendered in grid",
+    "status": "Pass",
+    "ms": 34
+  },
+  {
+    "id": "TC03",
+    "module": "Home",
+    "name": "Hero KPIs show catalogue counts",
+    "expected": "396 services, 15 stages, 21 online",
+    "actual": "396 / 15 / 21 / 24\u00d77",
+    "status": "Pass",
+    "ms": 26
+  },
+  {
+    "id": "TC04",
+    "module": "Auth",
+    "name": "Opening a life stage when logged out asks for login",
+    "expected": "Login dialog opens",
+    "actual": "Login dialog opened",
+    "status": "Pass",
+    "ms": 353
+  },
+  {
+    "id": "TC05",
+    "module": "Auth",
+    "name": "Submit with invalid Aadhaar (5 digits)",
+    "expected": "Validation error, OTP not sent",
+    "actual": "Error shown: \"Enter your 12-digit Aadhaar number.\"",
+    "status": "Pass",
+    "ms": 354
+  },
+  {
+    "id": "TC06",
+    "module": "Auth",
+    "name": "Aadhaar input auto formats",
+    "expected": "Number grouped as 1234 5678 9012",
+    "actual": "Field shows \"1234 5678 9012\"",
+    "status": "Pass",
+    "ms": 75
+  },
+  {
+    "id": "TC07",
+    "module": "Auth",
+    "name": "Letters typed in Aadhaar field",
+    "expected": "Non digits stripped",
+    "actual": "Field shows \"1234\"",
+    "status": "Pass",
+    "ms": 83
+  },
+  {
+    "id": "TC08",
+    "module": "Auth",
+    "name": "Send OTP with valid 12 digit Aadhaar",
+    "expected": "OTP step shown, Aadhaar field locked",
+    "actual": "OTP step visible, Aadhaar locked",
+    "status": "Pass",
+    "ms": 1119
+  },
+  {
+    "id": "TC09",
+    "module": "Auth",
+    "name": "Verify with short OTP (3 digits)",
+    "expected": "Validation error, not logged in",
+    "actual": "Error shown: \"Enter the 6-digit OTP.\"",
+    "status": "Pass",
+    "ms": 293
+  },
+  {
+    "id": "TC10",
+    "module": "Auth",
+    "name": "Verify with valid 6 digit OTP",
+    "expected": "Login successful, user continues to chosen stage",
+    "actual": "Logged in, drawer opened, header shows \"Log out\"",
+    "status": "Pass",
+    "ms": 1368
+  },
+  {
+    "id": "TC11",
+    "module": "Services",
+    "name": "Stage drawer lists all services in the stage",
+    "expected": "Birth & early childhood shows 13 services",
+    "actual": "\"Birth & early childhood\" lists 13 services",
+    "status": "Pass",
+    "ms": 7
+  },
+  {
+    "id": "TC12",
+    "module": "Services",
+    "name": "Services tagged by availability",
+    "expected": "3 Available, 10 Coming soon",
+    "actual": "3 Available, 10 Coming soon",
+    "status": "Pass",
+    "ms": 6
+  },
+  {
+    "id": "TC13",
+    "module": "Accessibility",
+    "name": "Escape key closes drawer",
+    "expected": "Drawer closes, focus returns",
+    "actual": "Drawer closed",
+    "status": "Pass",
+    "ms": 309
+  },
+  {
+    "id": "TC14",
+    "module": "Search",
+    "name": "Search a valid keyword",
+    "expected": "Matching services listed",
+    "actual": "9 results for \"pension\"",
+    "status": "Pass",
+    "ms": 453
+  },
+  {
+    "id": "TC15",
+    "module": "Search",
+    "name": "Search a keyword with no match",
+    "expected": "Friendly empty state, no crash",
+    "actual": "Empty state shown",
+    "status": "Pass",
+    "ms": 498
+  },
+  {
+    "id": "TC16",
+    "module": "Language",
+    "name": "Switch language to Telugu",
+    "expected": "Interface switches to Telugu",
+    "actual": "html lang=\"te\", labels in Telugu",
+    "status": "Pass",
+    "ms": 724
+  },
+  {
+    "id": "TC17",
+    "module": "Language",
+    "name": "Language choice persists after reload",
+    "expected": "Telugu still selected",
+    "actual": "After reload: lang \"te\", session kept",
+    "status": "Pass",
+    "ms": 1378
+  },
+  {
+    "id": "TC18",
+    "module": "Accessibility",
+    "name": "A+ increases text size",
+    "expected": "Large text mode applied",
+    "actual": "text size = large",
+    "status": "Pass",
+    "ms": 716
+  },
+  {
+    "id": "TC19",
+    "module": "Auth",
+    "name": "Session survives page reload",
+    "expected": "Logged in user goes straight to stage",
+    "actual": "Stage opened without new login",
+    "status": "Pass",
+    "ms": 689
+  },
+  {
+    "id": "TC20",
+    "module": "Auth",
+    "name": "Logout",
+    "expected": "Session cleared, stages require login",
+    "actual": "Header shows \"Login\", stages locked again",
+    "status": "Pass",
+    "ms": 826
+  },
+  {
+    "id": "TC21",
+    "module": "Accessibility",
+    "name": "Escape key closes login dialog",
+    "expected": "Dialog closes",
+    "actual": "Login dialog closed by Escape",
+    "status": "Pass",
+    "ms": 3
+  },
+  {
+    "id": "TC22",
+    "module": "Stability",
+    "name": "No JavaScript errors during session",
+    "expected": "Zero console errors",
+    "actual": "0 errors",
+    "status": "Pass",
+    "ms": 0
+  },
+  {
+    "id": "TC23",
+    "module": "Responsive",
+    "name": "Mobile layout at 390px",
+    "expected": "No horizontal scroll",
+    "actual": "page width 390px at 390px viewport",
+    "status": "Pass",
+    "ms": 3
+  }
+]

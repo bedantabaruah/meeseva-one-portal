@@ -1,0 +1,12 @@
+# test run output (screenshots are regenerated on every run)
+tests/results/screenshots/
+__pycache__/
+*.pyc
+
+# local environment and editor files
+.env
+.env.*
+.DS_Store
+.vscode/
+.idea/
+node_modules/

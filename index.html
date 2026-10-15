@@ -1,0 +1,708 @@
+<!doctype html>
+<!-- MeeSeva One Portal. Styles in css/, scripts in js/, images and fonts in assets/. -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MeeSeva: Life Services Portal | Government of Telangana</title>
+  <meta name="description" content="The official single-window guide to every government service in Telangana, organised around the moments of your life. Birth, education, employment, land, health, welfare and more across 396 services." />
+  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="stylesheet" href="css/fonts.css" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+  <a class="skip" href="#main-content">Skip to main content</a>
+
+  <!-- utility bar: official marks, ministers, accessibility, language, login -->
+  <header class="util">
+    <a class="brand" href="#top" aria-label="MeeSeva home">
+      <img src="assets/img/meeseva-logo.png" alt="MeeSeva" width="167" height="152" />
+      <span class="vdiv" aria-hidden="true"></span>
+      <img src="assets/img/telangana-emblem.png" alt="Government of Telangana" width="169" height="169" />
+      <span class="vdiv" aria-hidden="true"></span>
+      <img src="assets/img/telangana-rising.png" alt="Telangana Rising" width="187" height="176" />
+    </a>
+    <span class="vdiv leaders-div" aria-hidden="true"></span>
+    <ul class="leaders">
+      <li>
+        <img src="assets/img/leader-cm-avatar.jpg" alt="" width="40" height="40" />
+        <span><small data-i18n="leader.cm.role">Hon'ble Chief Minister</small><b data-i18n="leader.cm.name">Sri A. Revanth Reddy</b></span>
+      </li>
+      <li>
+        <img src="assets/img/leader-it-avatar.jpg" alt="" width="40" height="40" />
+        <span><small data-i18n="leader.it.role">Minister for IT</small><b data-i18n="leader.it.name">Sri D. Sridhar Babu</b></span>
+      </li>
+    </ul>
+
+    <div class="util-right">
+      <div class="textsize" role="group" data-i18n-label="a11y.textSize" aria-label="Text size">
+        <button type="button" data-size="default" aria-pressed="true" data-i18n-label="a11y.textDefault" aria-label="Default text size">A</button>
+        <button type="button" data-size="large" aria-pressed="false" data-i18n-label="a11y.textLarge" aria-label="Large text size">A+</button>
+      </div>
+      <span class="vdiv textsize-div" aria-hidden="true"></span>
+
+      <div class="lang" id="lang">
+        <button class="util-btn" type="button" id="lang-btn" aria-expanded="false" aria-controls="lang-menu" aria-label="Language: English">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="lang-short">En</span>
+          <svg class="chev" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+        </button>
+        <ul class="lang-menu" id="lang-menu" hidden>
+          <li><button type="button" data-lang="en"><span lang="en">English</span><svg class="tick" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button></li>
+          <li><button type="button" data-lang="te"><span lang="te">తెలుగు</span><small>Telugu</small><svg class="tick" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></button></li>
+          <li><span class="soon" aria-disabled="true"><span lang="ur">اردو</span><small data-i18n="a11y.langSoon">Coming soon</small></span></li>
+        </ul>
+      </div>
+      <span class="vdiv" aria-hidden="true"></span>
+
+      <button class="util-btn login" type="button" id="login-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></svg>
+        <span id="login-btn-text">Login</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- the MeeSeva logo's arcs, reused as quiet decoration in the hero's text panels -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs id="kalamkari">
+<g id="k-paisley">
+  <path d="M-10 4C-10-5-2-9 5-7C10-5.5 12-9 11-12C15-9 15-3 11 1C6 7-1 10-5 10C-8 10-10 7.5-10 4Z" style="fill:var(--deco-hi)"/>
+  <path d="M-6.5 3.5C-6.5-2-1.5-4.5 3-3.5C6-2.6 7.5-4.6 7-6.6C9.6-4.6 9-1 6.4 1.2C3 4.3-1 6.3-3.6 6.3C-5.4 6.3-6.5 5.2-6.5 3.5Z" fill="none"/>
+  <circle cx="-2" cy="2.4" r="1.6"/>
+  <g stroke="none" style="fill:var(--deco-ink)"><circle cx="-2" cy="-.6" r=".7"/><circle cx="1" cy="2.4" r=".7"/><circle cx="-2" cy="5.4" r=".7"/><circle cx="-5" cy="2.4" r=".7"/></g>
+  <path d="M-10 4C-10-5-2-9 5-7C10-5.5 12-9 11-12C15-9 15-3 11 1C6 7-1 10-5 10C-8 10-10 7.5-10 4Z" transform="scale(1.22) translate(.4 -.4)" fill="none" stroke-dasharray="0 2.6" stroke-linecap="round" stroke-width="1.4"/>
+</g>
+<g id="k-petal"><path d="M0 0C3.4-3.6 3.4-7.6 0-10.6C-3.4-7.6-3.4-3.6 0 0Z" style="fill:var(--deco-hi)"/><path d="M0-2.2V-8" fill="none"/></g>
+<g id="k-rosette">
+  <use href="#k-petal" transform="rotate(0)"/><use href="#k-petal" transform="rotate(45)"/><use href="#k-petal" transform="rotate(90)"/><use href="#k-petal" transform="rotate(135)"/><use href="#k-petal" transform="rotate(180)"/><use href="#k-petal" transform="rotate(225)"/><use href="#k-petal" transform="rotate(270)"/><use href="#k-petal" transform="rotate(315)"/>
+  <circle r="4.4"/><circle r="1.8" stroke="none" style="fill:var(--deco-ink)"/>
+  <circle cx="2.98" cy="-7.21" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="7.21" cy="-2.98" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="7.21" cy="2.98" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="2.98" cy="7.21" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="-2.98" cy="7.21" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="-7.21" cy="2.98" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="-7.21" cy="-2.98" r=".75" stroke="none" style="fill:var(--deco-ink)"/><circle cx="-2.98" cy="-7.21" r=".75" stroke="none" style="fill:var(--deco-ink)"/>
+</g>
+<g id="k-leaf"><path d="M0 0C1.6-2.4 4.6-3 7-1.6C5.6 1 2.6 1.6 0 0Z" style="fill:var(--deco-hi)"/><path d="M1 -.3L5.6-1.4" fill="none"/></g>
+<g id="k-sprig">
+  <circle r="1.7"/>
+  <use href="#k-leaf" transform="rotate(-62) translate(1.4 0)"/><use href="#k-leaf" transform="scale(1 -1) rotate(-62) translate(1.4 0)"/>
+  <use href="#k-leaf" transform="rotate(118) translate(1.4 0)"/><use href="#k-leaf" transform="scale(1 -1) rotate(118) translate(1.4 0)"/>
+</g>
+<path id="k-tooth" d="M-2.2 0L0 3.6L2.2 0Z" style="fill:var(--deco-hi)"/>
+    </defs>
+    <symbol id="logo-arcs" viewBox="0 0 400 300">
+      <!-- each arc is built from Kalamkari elements: dotted borders with kangura teeth, paisleys (kalka),
+           lotus rosettes and leaf sprigs. Fill is the panel's --deco colour, linework its darker --deco-ink -->
+      <g fill="currentColor" style="stroke:var(--deco-ink);stroke-width:.9;stroke-linejoin:round">
+<path d="M49.65 245.28A160 160 0 0 1 350.35 245.28" fill="none" stroke="currentColor" stroke-width="40" style="stroke:currentColor"/>
+<path d="M33.49 239.39A177.2 177.2 0 0 1 366.51 239.39" fill="none" stroke="currentColor" stroke-width="5.6"/>
+<path d="M31.42 238.64A179.4 179.4 0 0 1 368.58 238.64" fill="none"/>
+<path d="M36.12 240.35A174.4 174.4 0 0 1 363.88 240.35" fill="none"/>
+<circle cx="34.28" cy="237.27" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="35.94" cy="233.04" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="37.71" cy="228.86" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="39.58" cy="224.73" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="41.56" cy="220.65" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="43.64" cy="216.62" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="45.83" cy="212.64" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="48.12" cy="208.72" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="50.5" cy="204.86" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="52.99" cy="201.07" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="55.57" cy="197.34" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="58.25" cy="193.67" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="61.02" cy="190.08" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="63.88" cy="186.55" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="66.83" cy="183.1" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="69.86" cy="179.73" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="72.98" cy="176.44" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="76.19" cy="173.23" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="79.48" cy="170.1" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="82.84" cy="167.06" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="86.29" cy="164.1" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="89.8" cy="161.23" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="93.39" cy="158.46" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="97.05" cy="155.77" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="100.78" cy="153.18" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="104.57" cy="150.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="108.42" cy="148.3" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="112.34" cy="146" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="116.31" cy="143.81" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="120.34" cy="141.72" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="124.42" cy="139.73" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="128.55" cy="137.85" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="132.72" cy="136.07" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="136.94" cy="134.4" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="141.2" cy="132.84" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="145.5" cy="131.39" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="149.84" cy="130.05" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="154.2" cy="128.82" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="158.6" cy="127.7" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="163.03" cy="126.7" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="167.48" cy="125.81" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="171.95" cy="125.03" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="176.44" cy="124.37" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="180.94" cy="123.83" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="185.46" cy="123.4" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="189.99" cy="123.08" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="194.52" cy="122.88" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="199.06" cy="122.8" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="203.6" cy="122.84" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="208.13" cy="122.99" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="212.66" cy="123.25" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="217.18" cy="123.63" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="221.69" cy="124.13" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="226.19" cy="124.75" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="230.67" cy="125.47" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="235.13" cy="126.32" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="239.56" cy="127.27" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="243.97" cy="128.34" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="248.35" cy="129.52" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="252.7" cy="130.82" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="257.02" cy="132.22" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="261.29" cy="133.74" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="265.53" cy="135.36" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="269.73" cy="137.09" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="273.87" cy="138.93" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="277.97" cy="140.88" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="282.02" cy="142.93" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="286.02" cy="145.08" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="289.96" cy="147.33" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="293.84" cy="149.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="297.65" cy="152.14" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="301.41" cy="154.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="305.1" cy="157.33" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="308.72" cy="160.07" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="312.26" cy="162.9" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="315.74" cy="165.82" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="319.13" cy="168.83" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="322.45" cy="171.92" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="325.69" cy="175.1" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="328.85" cy="178.36" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="331.92" cy="181.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="334.91" cy="185.11" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="337.81" cy="188.6" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="340.61" cy="192.17" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="343.33" cy="195.8" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="345.95" cy="199.51" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="348.48" cy="203.28" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="350.9" cy="207.11" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="353.23" cy="211.01" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="355.46" cy="214.96" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="357.59" cy="218.97" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="359.61" cy="223.03" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="361.53" cy="227.14" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="363.34" cy="231.3" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="365.05" cy="235.51" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<use href="#k-tooth" transform="translate(37.74 236.08) rotate(-68.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(41.3 227.68) rotate(-65.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(45.31 219.47) rotate(-62.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(49.73 211.49) rotate(-59.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(54.57 203.74) rotate(-56.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(59.81 196.26) rotate(-53.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(65.43 189.07) rotate(-50.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(71.42 182.18) rotate(-47.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(77.76 175.61) rotate(-44.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(84.44 169.38) rotate(-41.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(91.43 163.51) rotate(-38.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(98.73 158.02) rotate(-35.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(106.29 152.91) rotate(-32.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(114.12 148.21) rotate(-29.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(122.18 143.92) rotate(-26.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(130.46 140.06) rotate(-23.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(138.92 136.64) rotate(-20.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(147.56 133.67) rotate(-17.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(156.33 131.16) rotate(-14.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(165.23 129.1) rotate(-11.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(174.22 127.52) rotate(-8.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(183.28 126.4) rotate(-5.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(192.39 125.77) rotate(-2.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(201.52 125.61) rotate(0.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(210.65 125.93) rotate(3.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(219.74 126.72) rotate(6.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(228.78 127.99) rotate(9.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(237.75 129.73) rotate(12.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(246.61 131.94) rotate(15.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(255.34 134.61) rotate(18.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(263.92 137.74) rotate(21.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(272.32 141.3) rotate(24.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(280.53 145.31) rotate(27.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(288.51 149.73) rotate(30.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(296.26 154.57) rotate(33.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(303.74 159.81) rotate(36.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(310.93 165.43) rotate(39.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(317.82 171.42) rotate(42.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(324.39 177.76) rotate(45.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(330.62 184.44) rotate(48.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(336.49 191.43) rotate(51.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(341.98 198.73) rotate(54.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(347.09 206.29) rotate(57.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(351.79 214.12) rotate(60.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(356.08 222.18) rotate(63.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(359.94 230.46) rotate(66.5) scale(1 1)"/>
+<use href="#k-tooth" transform="translate(363.36 238.92) rotate(69.5) scale(1 1)"/>
+<path d="M65.81 251.16A142.8 142.8 0 0 1 334.19 251.16" fill="none" stroke="currentColor" stroke-width="5.6"/>
+<path d="M67.88 251.91A140.6 140.6 0 0 1 332.12 251.91" fill="none"/>
+<path d="M63.18 250.2A145.6 145.6 0 0 1 336.82 250.2" fill="none"/>
+<circle cx="66.6" cy="249.03" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="68.29" cy="244.82" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="70.11" cy="240.66" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="72.06" cy="236.57" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="74.14" cy="232.53" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="76.35" cy="228.57" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="78.68" cy="224.68" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="81.14" cy="220.86" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="83.71" cy="217.12" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="86.4" cy="213.47" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="89.21" cy="209.91" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="92.13" cy="206.43" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="95.15" cy="203.05" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="98.29" cy="199.77" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="101.52" cy="196.59" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="104.86" cy="193.51" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="108.29" cy="190.54" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="111.81" cy="187.68" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="115.43" cy="184.94" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="119.13" cy="182.31" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="122.91" cy="179.8" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="126.76" cy="177.41" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="130.7" cy="175.14" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="134.7" cy="173.01" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="138.77" cy="171" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="142.9" cy="169.11" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="147.08" cy="167.37" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="151.32" cy="165.75" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="155.61" cy="164.27" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="159.95" cy="162.93" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="164.32" cy="161.73" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="168.73" cy="160.66" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="173.18" cy="159.74" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="177.65" cy="158.96" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="182.14" cy="158.32" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="186.65" cy="157.83" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="191.17" cy="157.47" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="195.71" cy="157.26" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="200.24" cy="157.2" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="204.78" cy="157.28" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="209.31" cy="157.5" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="213.84" cy="157.87" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="218.34" cy="158.38" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="222.84" cy="159.04" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="227.3" cy="159.83" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="231.74" cy="160.77" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="236.15" cy="161.85" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="240.52" cy="163.07" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="244.85" cy="164.43" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="249.14" cy="165.92" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="253.37" cy="167.55" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="257.55" cy="169.31" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="261.68" cy="171.21" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="265.74" cy="173.23" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="269.73" cy="175.38" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="273.66" cy="177.66" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="277.5" cy="180.06" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="281.28" cy="182.59" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="284.97" cy="185.23" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="288.57" cy="187.99" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="292.08" cy="190.86" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="295.51" cy="193.84" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="298.83" cy="196.92" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="302.06" cy="200.12" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="305.18" cy="203.41" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="308.19" cy="206.8" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="311.1" cy="210.29" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="313.89" cy="213.86" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="316.57" cy="217.52" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="319.13" cy="221.27" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="321.58" cy="225.09" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="323.89" cy="228.99" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="326.09" cy="232.97" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="328.15" cy="237.01" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="330.09" cy="241.11" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="331.9" cy="245.27" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="333.57" cy="249.49" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<use href="#k-tooth" transform="translate(64.93 245.63) rotate(-68.07) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(68.9 236.66) rotate(-64.21) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(73.46 227.99) rotate(-60.36) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(78.59 219.64) rotate(-56.5) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(84.27 211.65) rotate(-52.64) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(90.47 204.07) rotate(-48.79) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(97.17 196.92) rotate(-44.93) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(104.34 190.23) rotate(-41.07) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(111.94 184.05) rotate(-37.21) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(119.94 178.39) rotate(-33.36) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(128.3 173.28) rotate(-29.5) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(136.99 168.74) rotate(-25.64) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(145.96 164.8) rotate(-21.79) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(155.18 161.47) rotate(-17.93) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(164.6 158.77) rotate(-14.07) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(174.18 156.71) rotate(-10.21) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(183.88 155.3) rotate(-6.36) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(193.65 154.54) rotate(-2.5) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(203.45 154.44) rotate(1.36) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(213.23 155) rotate(5.21) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(222.96 156.22) rotate(9.07) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(232.58 158.09) rotate(12.93) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(242.05 160.6) rotate(16.79) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(251.33 163.75) rotate(20.64) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(260.38 167.51) rotate(24.5) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(269.16 171.87) rotate(28.36) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(277.62 176.81) rotate(32.21) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(285.73 182.31) rotate(36.07) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(293.45 188.35) rotate(39.93) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(300.75 194.89) rotate(43.79) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(307.59 201.9) rotate(47.64) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(313.95 209.36) rotate(51.5) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(319.79 217.23) rotate(55.36) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(325.08 225.48) rotate(59.21) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(329.81 234.06) rotate(63.07) scale(1 -1)"/>
+<use href="#k-tooth" transform="translate(333.95 242.94) rotate(66.93) scale(1 -1)"/>
+<use href="#k-paisley" transform="translate(56.1 228.68) rotate(-63.64) scale(0.98 0.98)"/>
+<use href="#k-sprig" transform="translate(65.4 213.5) rotate(-57.27) scale(0.98)"/>
+<use href="#k-rosette" transform="translate(75.82 199.11) rotate(-50.91) scale(0.98)"/>
+<use href="#k-sprig" transform="translate(87.76 185.97) rotate(-44.55) scale(0.98)"/>
+<use href="#k-paisley" transform="translate(100.72 173.76) rotate(-38.18) scale(0.98 0.98)"/>
+<use href="#k-sprig" transform="translate(115.64 164.04) rotate(-31.82) scale(0.98)"/>
+<use href="#k-rosette" transform="translate(131.23 155.53) rotate(-25.45) scale(0.98)"/>
+<use href="#k-sprig" transform="translate(147.67 148.8) rotate(-19.09) scale(0.98)"/>
+<use href="#k-paisley" transform="translate(164.62 143.35) rotate(-12.73) scale(0.98 0.98)"/>
+<use href="#k-sprig" transform="translate(182.27 140.99) rotate(-6.36) scale(0.98)"/>
+<use href="#k-rosette" transform="translate(200 140) rotate(0) scale(1.0584)"/>
+<use href="#k-sprig" transform="translate(217.73 140.99) rotate(6.36) scale(0.98)"/>
+<use href="#k-paisley" transform="translate(235.38 143.35) rotate(12.73) scale(-0.98 0.98)"/>
+<use href="#k-sprig" transform="translate(252.33 148.8) rotate(19.09) scale(0.98)"/>
+<use href="#k-rosette" transform="translate(268.77 155.53) rotate(25.45) scale(0.98)"/>
+<use href="#k-sprig" transform="translate(284.36 164.04) rotate(31.82) scale(0.98)"/>
+<use href="#k-paisley" transform="translate(299.28 173.76) rotate(38.18) scale(-0.98 0.98)"/>
+<use href="#k-sprig" transform="translate(312.24 185.97) rotate(44.55) scale(0.98)"/>
+<use href="#k-rosette" transform="translate(324.18 199.11) rotate(50.91) scale(0.98)"/>
+<use href="#k-sprig" transform="translate(334.6 213.5) rotate(57.27) scale(0.98)"/>
+<use href="#k-paisley" transform="translate(343.9 228.68) rotate(63.64) scale(-0.98 0.98)"/>
+<path d="M68.44 252.12L30.86 238.44" fill="none" stroke-width="1.3"/>
+<path d="M331.56 252.12L369.14 238.44" fill="none" stroke-width="1.3"/>
+<path d="M113.9 259.85A95 95 0 0 1 286.1 259.85" fill="none" stroke="currentColor" stroke-width="34" style="stroke:currentColor"/>
+<path d="M100.58 253.64A109.7 109.7 0 0 1 299.42 253.64" fill="none" stroke="currentColor" stroke-width="4.6"/>
+<path d="M99.04 252.92A111.4 111.4 0 0 1 300.96 252.92" fill="none"/>
+<path d="M102.66 254.61A107.4 107.4 0 0 1 297.34 254.61" fill="none"/>
+<circle cx="101.56" cy="251.59" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="103.64" cy="247.56" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="105.9" cy="243.62" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="108.31" cy="239.78" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="110.88" cy="236.04" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="113.6" cy="232.41" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="116.47" cy="228.89" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="119.48" cy="225.5" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="122.63" cy="222.23" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="125.91" cy="219.1" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="129.32" cy="216.11" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="132.85" cy="213.25" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="136.49" cy="210.55" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="140.25" cy="208" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="144.1" cy="205.61" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="148.05" cy="203.38" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="152.09" cy="201.31" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="156.22" cy="199.42" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="160.41" cy="197.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="164.68" cy="196.14" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="169" cy="194.77" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="173.38" cy="193.58" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="177.81" cy="192.57" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="182.27" cy="191.74" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="186.76" cy="191.1" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="191.27" cy="190.65" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="195.8" cy="190.38" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="200.34" cy="190.3" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="204.88" cy="190.41" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="209.4" cy="190.7" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="213.92" cy="191.19" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="218.4" cy="191.85" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="222.86" cy="192.71" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="227.28" cy="193.75" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="231.65" cy="194.96" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="235.97" cy="196.36" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="240.22" cy="197.94" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="244.41" cy="199.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="248.52" cy="201.61" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="252.54" cy="203.7" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="256.48" cy="205.96" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="260.32" cy="208.37" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="264.06" cy="210.95" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="267.69" cy="213.67" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="271.2" cy="216.55" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="274.59" cy="219.56" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="277.85" cy="222.71" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="280.98" cy="226" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="283.97" cy="229.41" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="286.82" cy="232.95" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="289.52" cy="236.59" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="292.06" cy="240.35" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="294.45" cy="244.21" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="296.68" cy="248.16" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="298.74" cy="252.2" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<use href="#k-tooth" transform="translate(104.66 250.56) rotate(-62.59) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(109.15 242.72) rotate(-57.77) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(114.29 235.28) rotate(-52.95) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(120.03 228.31) rotate(-48.13) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(126.34 221.84) rotate(-43.3) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(133.17 215.93) rotate(-38.48) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(140.47 210.61) rotate(-33.66) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(148.2 205.92) rotate(-28.84) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(156.29 201.9) rotate(-24.02) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(164.69 198.57) rotate(-19.2) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(173.34 195.96) rotate(-14.38) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(182.17 194.09) rotate(-9.55) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(191.14 192.97) rotate(-4.73) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(200.17 192.6) rotate(0.09) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(209.19 192.99) rotate(4.91) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(218.16 194.15) rotate(9.73) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(226.99 196.05) rotate(14.55) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(235.63 198.68) rotate(19.37) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(244.02 202.04) rotate(24.2) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(252.1 206.08) rotate(29.02) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(259.81 210.79) rotate(33.84) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(267.09 216.14) rotate(38.66) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(273.9 222.07) rotate(43.48) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(280.19 228.56) rotate(48.3) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(285.91 235.55) rotate(53.12) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(291.03 243) rotate(57.95) scale(0.85 0.85)"/>
+<use href="#k-tooth" transform="translate(295.5 250.85) rotate(62.77) scale(0.85 0.85)"/>
+<path d="M127.22 266.06A80.3 80.3 0 0 1 272.78 266.06" fill="none" stroke="currentColor" stroke-width="4.6"/>
+<path d="M128.76 266.78A78.6 78.6 0 0 1 271.24 266.78" fill="none"/>
+<path d="M125.14 265.09A82.6 82.6 0 0 1 274.86 265.09" fill="none"/>
+<circle cx="128.21" cy="264.02" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="130.36" cy="260.02" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="132.73" cy="256.15" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="135.31" cy="252.42" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="138.1" cy="248.85" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="141.09" cy="245.43" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="144.27" cy="242.19" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="147.62" cy="239.14" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="151.14" cy="236.28" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="154.82" cy="233.62" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="158.64" cy="231.17" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="162.59" cy="228.95" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="166.67" cy="226.95" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="170.85" cy="225.18" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="175.12" cy="223.65" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="179.47" cy="222.37" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="183.89" cy="221.33" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="188.36" cy="220.55" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="192.86" cy="220.02" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="197.39" cy="219.74" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="201.93" cy="219.72" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="206.46" cy="219.96" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="210.97" cy="220.45" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="215.45" cy="221.2" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="219.87" cy="222.2" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="224.23" cy="223.44" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="228.52" cy="224.94" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="232.71" cy="226.67" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="236.8" cy="228.63" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="240.78" cy="230.82" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="244.62" cy="233.24" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="248.32" cy="235.86" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="251.86" cy="238.69" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="255.24" cy="241.72" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="258.45" cy="244.94" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="261.46" cy="248.32" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="264.28" cy="251.88" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="266.9" cy="255.59" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="269.3" cy="259.44" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<circle cx="271.48" cy="263.41" r=".8" stroke="none" style="fill:var(--deco-ink)"/>
+<use href="#k-tooth" transform="translate(127.38 260.64) rotate(-61.54) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(132.66 252.17) rotate(-54.62) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(138.91 244.4) rotate(-47.69) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(146.06 237.44) rotate(-40.77) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(153.99 231.4) rotate(-33.85) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(162.6 226.35) rotate(-26.92) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(171.75 222.38) rotate(-20) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(181.31 219.54) rotate(-13.08) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(191.15 217.88) rotate(-6.15) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(201.11 217.41) rotate(0.77) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(211.06 218.14) rotate(7.69) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(220.84 220.07) rotate(14.62) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(230.32 223.17) rotate(21.54) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(239.36 227.38) rotate(28.46) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(247.83 232.66) rotate(35.38) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(255.6 238.91) rotate(42.31) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(262.56 246.06) rotate(49.23) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(268.6 253.99) rotate(56.15) scale(0.85 -0.85)"/>
+<use href="#k-tooth" transform="translate(273.65 262.6) rotate(63.08) scale(0.85 -0.85)"/>
+<use href="#k-paisley" transform="translate(121.01 246.15) rotate(-55.71) scale(0.84 0.84)"/>
+<use href="#k-sprig" transform="translate(131.17 234.52) rotate(-46.43) scale(0.84)"/>
+<use href="#k-rosette" transform="translate(142.64 224.27) rotate(-37.14) scale(0.84)"/>
+<use href="#k-sprig" transform="translate(155.61 216.01) rotate(-27.86) scale(0.84)"/>
+<use href="#k-paisley" transform="translate(169.55 209.38) rotate(-18.57) scale(0.84 0.84)"/>
+<use href="#k-sprig" transform="translate(184.67 206.24) rotate(-9.29) scale(0.84)"/>
+<use href="#k-rosette" transform="translate(200 205) rotate(0) scale(0.9072)"/>
+<use href="#k-sprig" transform="translate(215.33 206.24) rotate(9.29) scale(0.84)"/>
+<use href="#k-paisley" transform="translate(230.45 209.38) rotate(18.57) scale(-0.84 0.84)"/>
+<use href="#k-sprig" transform="translate(244.39 216.01) rotate(27.86) scale(0.84)"/>
+<use href="#k-rosette" transform="translate(257.36 224.27) rotate(37.14) scale(0.84)"/>
+<use href="#k-sprig" transform="translate(268.83 234.52) rotate(46.43) scale(0.84)"/>
+<use href="#k-paisley" transform="translate(278.99 246.15) rotate(55.71) scale(-0.84 0.84)"/>
+<path d="M129.31 267.04L98.49 252.67" fill="none" stroke-width="1.3"/>
+<path d="M270.69 267.04L301.51 252.67" fill="none" stroke-width="1.3"/>
+      </g>
+    </symbol>
+  </svg>
+
+  <main id="main-content" tabindex="-1">
+    <!-- hero: a 3 × 2 grid of photo links and text panels -->
+    <section class="hero" id="top" aria-label="MeeSeva">
+      <div class="tile-blank tile--welcome"><svg class="deco" viewBox="0 0 400 300" aria-hidden="true"><use href="#logo-arcs"/></svg><h1 class="hero-welcome blur-copy" style="--d:0ms" data-i18n="x.welcome">Welcome to MeeSeva One Portal</h1></div>
+      <a class="tile tile--services" href="#life-stages">
+        <!-- cycles through every life stage's photo -->
+        <span class="fade" id="fade" aria-hidden="true">
+          <span class="fade-layer"><img src="assets/photos/unsplash/1657912230234-87f45165424d.jpg" alt="" style="object-position: 65% 30%" fetchpriority="high" /></span>
+          <span class="fade-layer is-entering"><img alt="" /></span>
+        </span>
+        <span class="tile-label" data-i18n="x.lifeStages">Life Stage Categories</span>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+      </a>
+      <div class="tile-blank tile--lede"><svg class="deco" viewBox="0 0 400 300" aria-hidden="true"><use href="#logo-arcs"/></svg><p class="blank-lede blur-copy" style="--d:450ms" data-i18n="x.heroLede">Find everything you need for every stage of life, all in one place</p></div>
+      <div class="tile tile--photo">
+        <img src="assets/img/charminar.jpg"
+             sizes="(max-width: 860px) 50vw, 34vw" alt="Charminar in Hyderabad at dusk" style="object-position: center 42%" fetchpriority="high" />
+      </div>
+      <div class="tile-blank tile--tagline"><svg class="deco" viewBox="0 0 400 300" aria-hidden="true"><use href="#logo-arcs"/></svg><p class="blank-lede blur-copy" style="--d:900ms" data-i18n="x.heroTagline">One Portal, Every Service</p></div>
+      <a class="tile tile--contact" href="#footer">
+        <!-- Unsplash photo 868MX7vylAk (Unsplash License) -->
+        <img src="assets/img/tile-contact.jpg"
+             sizes="(max-width: 860px) 50vw, 34vw" alt="" style="object-position: center 30%" />
+        <span class="tile-label" data-i18n="nav.contact">Contact</span>
+        <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+      </a>
+    </section>
+
+    <!-- headline numbers -->
+    <dl class="stats" id="hero-stats"></dl>
+
+    <!-- life stages -->
+    <section class="section stages" id="life-stages" aria-labelledby="stages-title">
+      <div class="section-head">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="cat.eyebrow">Organised around your life</p>
+          <h2 class="display" id="stages-title" data-i18n="cat.title">Find services by life stage.</h2>
+        </div>
+        <div class="reveal">
+          <form class="search" role="search" id="search-form">
+            <input id="search-input" type="search" autocomplete="off" data-i18n-label="hero.searchLabel" aria-label="Search life services" />
+            <button type="submit" data-i18n-label="hero.searchBtn" aria-label="Search" title="Search">
+              <svg class="arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5"/></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="stage-grid" id="stage-grid"></div>
+    </section>
+
+    <!-- leadership -->
+    <section class="leader" id="leadership" aria-labelledby="leader-title">
+      <div class="leader-photo">
+        <img src="assets/img/leader-cm-portrait.webp" sizes="(max-width: 860px) 90vw, 40vw" alt="Sri A. Revanth Reddy, Hon'ble Chief Minister of Telangana" loading="lazy" />
+      </div>
+      <div class="leader-copy">
+        <p class="eyebrow reveal">A message from leadership</p>
+        <h2 class="display reveal" id="leader-title">Government services, brought closer to every citizen.</h2>
+        <p class="reveal">MeeSeva means “at your service.” It reflects our commitment to simple, dignified access to government. We have organised every service around the moments of a citizen's life. That makes the state easier to reach, for a new parent, a student, a farmer and a senior alike.</p>
+        <div class="sign reveal">
+          <span class="mono" aria-hidden="true">RR</span>
+          <div>
+            <b>Sri A. Revanth Reddy</b>
+            <small>Hon'ble Chief Minister, Telangana</small>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="footer-cols">
+      <div>
+        <div class="footer-logos">
+          <img src="assets/img/meeseva-logo-footer.png" alt="MeeSeva" width="167" height="152" loading="lazy" />
+          <span class="vdiv" aria-hidden="true"></span>
+          <img src="assets/img/telangana-emblem.png" alt="Government of Telangana" width="169" height="169" loading="lazy" />
+        </div>
+        <p data-i18n="footer.desc">The official single-window portal of the Government of Telangana, reimagined around the citizen's life.</p>
+      </div>
+      <nav aria-label="Explore">
+        <h3 data-i18n="footer.explore">Explore</h3>
+        <a href="#life-stages" data-i18n="x.lifeStages">Life Stage Categories</a>
+        <button class="link" type="button" data-open-stage="N" data-i18n="footer.link.grievances">Grievances</button>
+      </nav>
+      <div>
+        <h3 data-i18n="footer.contact">Contact</h3>
+        <a href="tel:18001234567">1800 123 4567</a>
+        <a href="mailto:help@meeseva.telangana.gov.in">help@meeseva.telangana.gov.in</a>
+        <span data-i18n="footer.hours">Mon to Fri · 8am to 6pm</span>
+      </div>
+    </div>
+    <p class="footer-mark" aria-hidden="true">MEESEVA</p>
+    <div class="footer-meta">
+      <span data-i18n="footer.copyright">© 2026 MeeSeva, Government of Telangana.</span>
+      <a class="made-by" href="https://www.happening.design/" target="_blank" rel="noopener noreferrer">
+        <svg class="hap" id="hap" viewBox="0 0 924 924" aria-hidden="true">
+          <path class="hap-sun" opacity="0.8" fill="#5899E2" d="M439.937 60.3487C447.456 39.7816 476.544 39.7816 484.063 60.3487L526.31 175.905C531.738 190.75 549.982 196.107 562.573 186.553L660.588 112.181C678.033 98.9442 702.504 114.67 697.71 136.038L670.776 256.09C667.316 271.513 679.767 285.883 695.526 284.653L818.19 275.079C840.022 273.374 852.105 299.834 836.52 315.217L748.957 401.651C737.708 412.754 740.414 431.575 754.335 439.06L862.703 497.322C881.991 507.692 877.851 536.484 856.423 541L736.031 566.371C720.564 569.631 712.665 586.927 720.33 600.75L779.996 708.351C790.616 727.503 771.567 749.486 751.099 741.7L636.102 697.955C621.328 692.335 605.333 702.615 604.307 718.388L596.328 841.166C594.908 863.018 566.998 871.213 553.989 853.598L480.897 754.624C471.507 741.91 452.493 741.91 443.103 754.624L370.011 853.598C357.002 871.213 329.092 863.018 327.672 841.166L319.693 718.388C318.667 702.615 302.672 692.335 287.898 697.955L172.901 741.7C152.433 749.486 133.384 727.503 144.004 708.351L203.67 600.75C211.335 586.927 203.436 569.631 187.969 566.371L67.5768 541C46.149 536.484 42.0094 507.692 61.297 497.322L169.665 439.06C183.586 431.575 186.292 412.754 175.043 401.651L87.4797 315.217C71.8949 299.834 83.9785 273.374 105.811 275.079L228.474 284.653C244.233 285.883 256.684 271.513 253.224 256.09L226.29 136.038C221.496 114.67 245.967 98.9442 263.412 112.181L361.427 186.553C374.018 196.107 392.262 190.75 397.69 175.905L439.937 60.3487Z"/>
+          <circle cx="462" cy="462" r="250.576" fill="#5899E2"/>
+          <g class="hap-face" id="hap-face">
+            <path d="M328.881 383.695C372.611 430.968 485.515 497.15 587.288 383.695" stroke="white" stroke-width="7.83051" stroke-linecap="round" fill="none"/>
+            <path class="hap-eye" fill="white" d="M446.339 356.289C446.339 351.661 445.427 347.079 443.656 342.804C441.885 338.529 439.29 334.644 436.018 331.372C432.746 328.1 428.861 325.504 424.586 323.734C420.311 321.963 415.729 321.051 411.101 321.051C406.474 321.051 401.892 321.963 397.616 323.734C393.341 325.504 389.457 328.1 386.185 331.372C382.913 334.644 380.317 338.529 378.546 342.804C376.775 347.079 375.864 351.661 375.864 356.289L411.101 356.289H446.339Z"/>
+            <path class="hap-eye" fill="white" d="M548.135 356.289C548.135 351.661 547.224 347.079 545.453 342.804C543.682 338.529 541.087 334.644 537.814 331.372C534.542 328.1 530.658 325.504 526.383 323.734C522.107 321.963 517.525 321.051 512.898 321.051C508.271 321.051 503.688 321.963 499.413 323.734C495.138 325.504 491.254 328.1 487.981 331.372C484.709 334.644 482.114 338.529 480.343 342.804C478.572 347.079 477.661 351.661 477.661 356.289L512.898 356.289H548.135Z"/>
+          </g>
+        </svg>
+        <span>Handcrafted by <b>Happening Design</b></span>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Aadhaar + OTP login, asked for before a life stage opens -->
+  <div class="login-overlay" id="login" aria-hidden="true">
+    <div class="login-card" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <div class="login-head">
+        <h2 id="login-title" data-i18n="consent.login.h">Log in</h2>
+        <button class="login-x" id="login-close" type="button" data-i18n-label="consent.close" aria-label="Close">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <form class="login-body" id="login-form" novalidate>
+        <h3 data-i18n="consent.login.h">Log in</h3>
+        <p class="login-lede" data-i18n="consent.login.p">Verify your identity to securely pull your existing records.</p>
+        <label class="login-field">
+          <span><span data-i18n="login.aadhaar.label">Aadhaar number</span> <b aria-hidden="true">*</b></span>
+          <input id="login-aadhaar" inputmode="numeric" autocomplete="off" required data-i18n-ph="login.aadhaar.ph" placeholder="1234 5678 9012" maxlength="14" />
+        </label>
+        <div id="login-otp-step" hidden>
+          <div class="login-sent" role="status">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span id="login-sent-text"></span>
+          </div>
+          <label class="login-field">
+            <span><span data-i18n="login.otp.label">OTP sent to your Aadhaar-linked mobile</span> <b aria-hidden="true">*</b></span>
+            <input id="login-otp" inputmode="numeric" autocomplete="one-time-code" required data-i18n-ph="login.otp.ph" placeholder="6-digit OTP" maxlength="6" />
+          </label>
+          <div class="login-links">
+            <button type="button" id="login-change" data-i18n="login.otp.change">Change Aadhaar number</button>
+            <button type="button" id="login-resend" data-i18n="login.otp.resend">Resend OTP</button>
+          </div>
+        </div>
+        <p class="login-error" id="login-error" role="alert"></p>
+        <button class="login-submit" id="login-submit" type="submit">Send OTP →</button>
+        <div class="login-why">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
+          <span data-i18n="login.aadhaar.why">Aadhaar authentication lets MeeSeva pull your records and certificates in one step.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- category / search results drawer -->
+  <div class="scrim" id="scrim"></div>
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" type="button" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 3l12 12M15 3L3 15"/></svg>
+    </button>
+    <div id="drawer-content" style="display:contents"></div>
+  </aside>
+
+  <script src="js/catalogue.js"></script>
+  <script src="js/photos.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

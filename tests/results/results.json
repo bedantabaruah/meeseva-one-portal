@@ -6,7 +6,7 @@
     "expected": "Page title shows MeeSeva Life Services Portal",
     "actual": "MeeSeva: Life Services Portal | Government of Telangana",
     "status": "Pass",
-    "ms": 7
+    "ms": 3
   },
   {
     "id": "TC02",
@@ -15,7 +15,7 @@
     "expected": "15 life stage tiles shown",
     "actual": "15 tiles rendered in grid",
     "status": "Pass",
-    "ms": 34
+    "ms": 13
   },
   {
     "id": "TC03",
@@ -24,7 +24,7 @@
     "expected": "396 services, 15 stages, 21 online",
     "actual": "396 / 15 / 21 / 24\u00d77",
     "status": "Pass",
-    "ms": 26
+    "ms": 17
   },
   {
     "id": "TC04",
@@ -33,7 +33,7 @@
     "expected": "Login dialog opens",
     "actual": "Login dialog opened",
     "status": "Pass",
-    "ms": 353
+    "ms": 344
   },
   {
     "id": "TC05",
@@ -42,7 +42,7 @@
     "expected": "Validation error, OTP not sent",
     "actual": "Error shown: \"Enter your 12-digit Aadhaar number.\"",
     "status": "Pass",
-    "ms": 354
+    "ms": 273
   },
   {
     "id": "TC06",
@@ -51,7 +51,7 @@
     "expected": "Number grouped as 1234 5678 9012",
     "actual": "Field shows \"1234 5678 9012\"",
     "status": "Pass",
-    "ms": 75
+    "ms": 30
   },
   {
     "id": "TC07",
@@ -60,7 +60,7 @@
     "expected": "Non digits stripped",
     "actual": "Field shows \"1234\"",
     "status": "Pass",
-    "ms": 83
+    "ms": 36
   },
   {
     "id": "TC08",
@@ -69,7 +69,7 @@
     "expected": "OTP step shown, Aadhaar field locked",
     "actual": "OTP step visible, Aadhaar locked",
     "status": "Pass",
-    "ms": 1119
+    "ms": 1067
   },
   {
     "id": "TC09",
@@ -78,34 +78,34 @@
     "expected": "Validation error, not logged in",
     "actual": "Error shown: \"Enter the 6-digit OTP.\"",
     "status": "Pass",
-    "ms": 293
+    "ms": 256
   },
   {
     "id": "TC10",
     "module": "Auth",
     "name": "Verify with valid 6 digit OTP",
     "expected": "Login successful, user continues to chosen stage",
-    "actual": "Logged in, drawer opened, header shows \"Log out\"",
+    "actual": "Logged in, \"Find your birth record\" page opened, header shows \"Log out\"",
     "status": "Pass",
-    "ms": 1368
+    "ms": 1306
   },
   {
     "id": "TC11",
     "module": "Services",
     "name": "Stage drawer lists all services in the stage",
-    "expected": "Birth & early childhood shows 13 services",
-    "actual": "\"Birth & early childhood\" lists 13 services",
+    "expected": "Education & learning shows 20 services",
+    "actual": "\"Education & learning\" lists 20 services",
     "status": "Pass",
-    "ms": 7
+    "ms": 1106
   },
   {
     "id": "TC12",
     "module": "Services",
     "name": "Services tagged by availability",
-    "expected": "3 Available, 10 Coming soon",
-    "actual": "3 Available, 10 Coming soon",
+    "expected": "2 Available, 18 Coming soon",
+    "actual": "2 Available, 18 Coming soon",
     "status": "Pass",
-    "ms": 6
+    "ms": 4
   },
   {
     "id": "TC13",
@@ -114,7 +114,7 @@
     "expected": "Drawer closes, focus returns",
     "actual": "Drawer closed",
     "status": "Pass",
-    "ms": 309
+    "ms": 317
   },
   {
     "id": "TC14",
@@ -123,7 +123,7 @@
     "expected": "Matching services listed",
     "actual": "9 results for \"pension\"",
     "status": "Pass",
-    "ms": 453
+    "ms": 470
   },
   {
     "id": "TC15",
@@ -132,7 +132,7 @@
     "expected": "Friendly empty state, no crash",
     "actual": "Empty state shown",
     "status": "Pass",
-    "ms": 498
+    "ms": 449
   },
   {
     "id": "TC16",
@@ -141,7 +141,7 @@
     "expected": "Interface switches to Telugu",
     "actual": "html lang=\"te\", labels in Telugu",
     "status": "Pass",
-    "ms": 724
+    "ms": 679
   },
   {
     "id": "TC17",
@@ -150,7 +150,7 @@
     "expected": "Telugu still selected",
     "actual": "After reload: lang \"te\", session kept",
     "status": "Pass",
-    "ms": 1378
+    "ms": 1750
   },
   {
     "id": "TC18",
@@ -159,7 +159,7 @@
     "expected": "Large text mode applied",
     "actual": "text size = large",
     "status": "Pass",
-    "ms": 716
+    "ms": 727
   },
   {
     "id": "TC19",
@@ -168,7 +168,7 @@
     "expected": "Logged in user goes straight to stage",
     "actual": "Stage opened without new login",
     "status": "Pass",
-    "ms": 689
+    "ms": 1428
   },
   {
     "id": "TC20",
@@ -177,7 +177,7 @@
     "expected": "Session cleared, stages require login",
     "actual": "Header shows \"Login\", stages locked again",
     "status": "Pass",
-    "ms": 826
+    "ms": 891
   },
   {
     "id": "TC21",
@@ -186,7 +186,7 @@
     "expected": "Dialog closes",
     "actual": "Login dialog closed by Escape",
     "status": "Pass",
-    "ms": 3
+    "ms": 2
   },
   {
     "id": "TC22",
@@ -204,6 +204,195 @@
     "expected": "No horizontal scroll",
     "actual": "page width 390px at 390px viewport",
     "status": "Pass",
-    "ms": 3
+    "ms": 2
+  },
+  {
+    "id": "TC24",
+    "module": "Birth services",
+    "name": "Life stage opens as its own page after login",
+    "expected": "Step 1 of 2 page with Search by Details and Non-Availability Certificate",
+    "actual": "\"Find your birth record\" page, 2 ways to find the record, home hidden: True",
+    "status": "Pass",
+    "ms": 1
+  },
+  {
+    "id": "TC25",
+    "module": "Birth services",
+    "name": "Select District is mandatory",
+    "expected": "Error shown; all 33 districts offered",
+    "actual": "Error shown: \"Select the district to continue.\", 33 districts listed",
+    "status": "Pass",
+    "ms": 384
+  },
+  {
+    "id": "TC26",
+    "module": "Birth services",
+    "name": "Fill sample data, then Next",
+    "expected": "Hyderabad chosen; GHMC fields and acknowledgement search shown",
+    "actual": "District \"HYDERABAD\"; GHMC birth details and acknowledgement search shown",
+    "status": "Pass",
+    "ms": 406
+  },
+  {
+    "id": "TC27",
+    "module": "Birth services",
+    "name": "Search without the mandatory birth details",
+    "expected": "Message asks for Date of Birth, Circle/Area and Gender",
+    "actual": "\"Fill in Date of Birth, Circle/Area and Gender to search.\"; 3 fields marked",
+    "status": "Pass",
+    "ms": 49
+  },
+  {
+    "id": "TC28",
+    "module": "Birth services",
+    "name": "Search lists the birth register for those details",
+    "expected": "Matching Birth Records table with acknowledgement no., child, parents, hospital, officer",
+    "actual": "11 records for Circle No.: 24  Date of Birth: 12-Mar-2024  Gender: F",
+    "status": "Pass",
+    "ms": 608
+  },
+  {
+    "id": "TC29",
+    "module": "Birth services",
+    "name": "The same search gives the same list",
+    "expected": "Identical rows",
+    "actual": "11 rows before, 11 after, identical: True",
+    "status": "Pass",
+    "ms": 890
+  },
+  {
+    "id": "TC30",
+    "module": "Birth services",
+    "name": "View Details opens step 2 for that record",
+    "expected": "Record found; Birth Certificate, Name inclusion (off: already named), Correction",
+    "actual": "\"Record found for\nSri Lakshmi Gaddam\n\u00b7 Ack 1202436100421\", 3 services",
+    "status": "Pass",
+    "ms": 455
+  },
+  {
+    "id": "TC31",
+    "module": "Birth services",
+    "name": "Application form validates applicant details",
+    "expected": "Mobile, Telangana pincode and declaration errors shown",
+    "actual": "Enter a valid 10-digit mobile number. | Enter a valid 6-digit Telangana pincode (starts with 5). | Please accept the declaration.",
+    "status": "Pass",
+    "ms": 429
+  },
+  {
+    "id": "TC32",
+    "module": "Birth services",
+    "name": "Fill sample data on the application form",
+    "expected": "Every field valid; payment step shown",
+    "actual": "Payment shown: Total payable \u20b960",
+    "status": "Pass",
+    "ms": 389
+  },
+  {
+    "id": "TC33",
+    "module": "Birth services",
+    "name": "Birth certificate issued after payment",
+    "expected": "Application no. BC\u2026; sample certificate marked as not a legal document",
+    "actual": "BC022609440822, certificate for Sri Lakshmi Gaddam",
+    "status": "Pass",
+    "ms": 1699
+  },
+  {
+    "id": "TC34",
+    "module": "Birth services",
+    "name": "Child name inclusion from a 'Not named yet' record",
+    "expected": "Name and document checks, then application no. NI\u2026",
+    "actual": "\"Use letters only.\" / \"Attach a PDF, JPG or PNG file.\" / \"The file must be 2 MB or smaller.\" then NI022662480664",
+    "status": "Pass",
+    "ms": 2608
+  },
+  {
+    "id": "TC35",
+    "module": "Birth services",
+    "name": "Correction rejects an unchanged value",
+    "expected": "Error for an unchanged value, then application no. BR\u2026",
+    "actual": "\"The correct value must be different from what is recorded now.\" then BR022619098796",
+    "status": "Pass",
+    "ms": 2670
+  },
+  {
+    "id": "TC36",
+    "module": "Birth services",
+    "name": "A search with no match",
+    "expected": "Goes to the Non-Availability Certificate",
+    "actual": "\"No registered birth record found \u2014 showing the non-availability certificate \u00b7 Date of Birth 12 Mar 2024\", 1 service",
+    "status": "Pass",
+    "ms": 916
+  },
+  {
+    "id": "TC37",
+    "module": "Birth services",
+    "name": "Non-Availability Certificate application",
+    "expected": "Application no. NA\u2026 with an expected-by date",
+    "actual": "NA022662594464, expected-by date shown: True",
+    "status": "Pass",
+    "ms": 1762
+  },
+  {
+    "id": "TC38",
+    "module": "Birth services",
+    "name": "Search by acknowledgement number",
+    "expected": "13-digit check, then the one matching record",
+    "actual": "\"Enter a valid 13-digit acknowledgement number.\" then 1 record",
+    "status": "Pass",
+    "ms": 974
+  },
+  {
+    "id": "TC39",
+    "module": "Birth services",
+    "name": "Other districts search by location type, office, gender and year",
+    "expected": "Office list waits for the location type; records listed",
+    "actual": "Office locked until type chosen: True; 8 records",
+    "status": "Pass",
+    "ms": 1015
+  },
+  {
+    "id": "TC40",
+    "module": "Birth services",
+    "name": "Your applications: list and withdraw",
+    "expected": "Submitted applications listed; withdrawing removes one",
+    "actual": "4 applications listed, 3 after withdrawing one",
+    "status": "Pass",
+    "ms": 797
+  },
+  {
+    "id": "TC41",
+    "module": "Birth services",
+    "name": "Browser Back and the Home link",
+    "expected": "Back returns to the filled search; Home returns to the home page",
+    "actual": "Back keeps the typed details: True; Home shows the home page: True",
+    "status": "Pass",
+    "ms": 1470
+  },
+  {
+    "id": "TC42",
+    "module": "Birth services",
+    "name": "A service page link opened while signed out",
+    "expected": "Login first, then the requested page",
+    "actual": "Login asked: True; then \"Search by Details\"",
+    "status": "Pass",
+    "ms": 4658
+  },
+  {
+    "id": "TC43",
+    "module": "Responsive",
+    "name": "Birth search results on a 390px phone",
+    "expected": "Records shown as cards; no horizontal scroll",
+    "actual": "page width 390px; each record shown as a block card",
+    "status": "Pass",
+    "ms": 6265
+  },
+  {
+    "id": "TC44",
+    "module": "Stability",
+    "name": "No JavaScript errors on the service pages",
+    "expected": "Zero console errors",
+    "actual": "0 errors",
+    "status": "Pass",
+    "ms": 0
   }
 ]

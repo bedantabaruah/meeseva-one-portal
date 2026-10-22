@@ -408,6 +408,278 @@
     .no-match { padding: 48px 0; text-align: center; }
     .no-match b { display: block; font-size: 18px; }
     .no-match span { display: block; margin-top: 8px; color: var(--ink-3); }
+    /* ------------------------------------------------------------ service pages (birth & early childhood flow) */
+    .svc-page { background: var(--paper); min-height: 70vh; }
+    .svc-wrap { max-width: 1280px; margin: 0 auto; padding: 36px var(--gutter) 104px; }
+    .svc-crumbs ol { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 0; padding: 0; list-style: none; font-size: 15px; }
+    .svc-crumbs li { display: flex; align-items: center; gap: 10px; color: var(--ink); }
+    .svc-crumbs li + li::before { content: "›"; color: var(--ink-3); }
+    .svc-crumbs a { color: var(--link); font-weight: 600; }
+    .svc-crumbs a:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .svc-steps { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 0; margin: 26px 0 32px; padding: 0; list-style: none; }
+    .svc-steps li { display: flex; align-items: center; font-size: 15px; font-weight: 600; color: var(--ink-3); }
+    .svc-steps li + li::before { content: ""; width: 48px; height: 1px; margin: 0 16px; background: var(--line-cool); }
+    .svc-steps li.is-done + li::before { background: var(--navy); }
+    .svc-steps a, .svc-steps li > span { display: flex; align-items: center; gap: 10px; color: inherit; }
+    .svc-steps i { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-style: normal; font-size: 14px; background: var(--paper-2); border: 1px solid var(--line); color: var(--ink-2); }
+    .svc-steps li.is-current { color: var(--ink); }
+    .svc-steps li.is-current i { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .svc-steps li.is-done { color: var(--ink); }
+    .svc-steps li.is-done i { background: var(--mint); border-color: var(--mint); color: var(--teal); }
+    .svc-steps a:hover span { text-decoration: underline; text-underline-offset: 4px; }
+
+    /* step banner: the life stage's own photo under the navy wash, as on the home page tiles */
+    .svc-banner {
+      position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: center; gap: 28px;
+      min-height: 220px; padding: 40px 44px; color: #fff; background: var(--navy);
+    }
+    .svc-banner > img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
+    .svc-banner::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(var(--shade), .94) 0%, rgba(var(--shade), .82) 50%, rgba(var(--shade), .4) 100%); }
+    .svc-banner-icon { display: grid; place-items: center; flex: none; width: 84px; height: 84px; border-radius: 14px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.22); }
+    .svc-banner-icon svg { width: 40px; height: 40px; }
+    .svc-eyebrow { margin: 0 0 10px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.75); }
+    .svc-title { margin: 0; font-size: clamp(28px, 3vw, 42px); font-weight: 700; line-height: 1.15; letter-spacing: -.02em; outline: none; }
+    .svc-desc { max-width: 62ch; margin: 10px 0 0; font-size: 17px; line-height: 1.55; color: rgba(255,255,255,.86); }
+    .svc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .svc-chip { padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; background: rgba(255,255,255,.14); color: #fff; }
+    .svc-chip--live { background: var(--mint); color: var(--teal); }
+    .svc-chip--soon { background: var(--gold); color: var(--ink); }
+    html[lang='te'] .svc-eyebrow { letter-spacing: 0; }
+
+    /* step 1 choice cards */
+    .svc-choices { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 32px; }
+    .svc-choice {
+      position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 30px 32px;
+      border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink); text-align: left; font: inherit; cursor: pointer;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    .svc-choice:hover { border-color: var(--navy); box-shadow: 0 14px 32px rgba(11,26,60,.08); transform: translateY(-2px); }
+    .svc-choice::after { content: ""; position: absolute; top: 26px; right: 26px; width: 22px; height: 22px; border-radius: 50%; border: 1.5px solid var(--line-cool); transition: border-color .2s, box-shadow .2s; }
+    .svc-choice:hover::after { border-color: var(--navy); box-shadow: inset 0 0 0 5px var(--navy); }
+    .svc-choice-icon { display: grid; place-items: center; width: 56px; height: 56px; margin-bottom: 18px; border-radius: 12px; background: var(--mint); color: var(--teal); }
+    .svc-choice b { font-size: 19px; }
+    .svc-choice span { font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
+
+    /* panels (cards with a header) */
+    .svc-panel { border: 1px solid var(--line-cool); border-radius: 12px; background: var(--paper); }
+    .svc-panel + .svc-panel { margin-top: 0; }
+    .svc-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 28px; }
+    .svc-panel-head h2, .svc-panel-head h3 { margin: 0; font-size: 19px; font-weight: 700; }
+    .svc-panel-head p { margin: 6px 0 0; font-size: 15.5px; line-height: 1.5; color: var(--ink-2); }
+    .svc-panel-body { padding: 24px 28px 28px; border-top: 1px solid var(--line-cool); }
+    details.svc-panel > summary { list-style: none; cursor: pointer; }
+    details.svc-panel > summary::-webkit-details-marker { display: none; }
+    .svc-chev { flex: none; transition: transform .2s; color: var(--ink-2); }
+    details[open] > summary .svc-chev { transform: rotate(180deg); }
+    .svc-or { display: flex; align-items: center; gap: 16px; margin: 26px 0; font-size: 13px; font-weight: 600; letter-spacing: .1em; color: var(--ink-3); }
+    .svc-or::before, .svc-or::after { content: ""; flex: 1; height: 1px; background: var(--line-cool); }
+    .svc-inline { display: flex; align-items: flex-end; gap: 18px; }
+    .svc-inline .svc-field { flex: 1; margin: 0; }
+
+    /* form fields */
+    .svc-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 22px; }
+    .svc-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .svc-field { display: block; min-width: 0; }
+    .svc-field--wide { grid-column: 1 / -1; }
+    .svc-field > span { display: block; margin-bottom: 8px; font-size: 15px; font-weight: 600; color: var(--ink); }
+    .svc-field > span b { color: #c0392b; font-weight: 600; }
+    .svc-field :is(input, select, textarea), .svc-pair :is(input, select) {
+      width: 100%; height: 54px; padding: 0 16px; border: 1px solid var(--line-cool); border-radius: 8px;
+      background: var(--paper); color: var(--ink); font: inherit; font-size: 16px; outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .svc-field textarea { height: auto; min-height: 92px; padding: 12px 16px; resize: vertical; line-height: 1.5; }
+    .svc-field input[type="file"] { padding: 13px 14px; font-size: 15px; }
+    .svc-field :is(input, select, textarea):disabled { background: var(--paper-2); color: var(--ink-3); }
+    .svc-field input[readonly] { background: var(--paper-2); color: var(--ink-2); }
+    .svc-field :is(input, select, textarea)::placeholder { color: #8f98ab; }
+    .svc-field :is(input, select, textarea):focus, .svc-pair :is(input, select):focus { border-color: var(--navy); box-shadow: 0 0 0 3px rgba(31,42,91,.14); }
+    .svc-page [aria-invalid="true"] { border-color: #c0392b !important; box-shadow: 0 0 0 3px rgba(192,57,43,.12); }
+    .svc-field small { display: block; margin-top: 6px; font-size: 13px; line-height: 1.45; color: var(--ink-3); }
+    .svc-err { display: block; margin-top: 6px; font-size: 13.5px; font-style: normal; color: #b3261e; }
+    .svc-pair { display: grid; grid-template-columns: 124px 1fr; gap: 8px; }
+    .svc-form-error { margin: 0 0 14px; padding: 12px 16px; border-radius: 8px; background: #fdecea; color: #8c1d18; font-size: 15px; }
+    .svc-note { margin: 18px 0 16px; font-size: 15px; color: var(--ink-2); }
+    .svc-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 8px; }
+    .svc-btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 54px; padding: 0 28px; border: 0; border-radius: 8px; cursor: pointer;
+      background: var(--navy); color: #fff; font: inherit; font-size: 16px; font-weight: 700; white-space: nowrap; transition: background .2s;
+    }
+    .svc-btn:hover { background: var(--navy-hover); }
+    .svc-btn:disabled { opacity: .65; cursor: progress; }
+    .svc-btn--line { background: var(--paper); color: var(--ink); border: 1px solid var(--line-cool); }
+    .svc-btn--line:hover { background: var(--mint); }
+    .svc-btn--sm { height: 42px; padding: 0 16px; font-size: 14.5px; }
+    .svc-link { display: inline-flex; align-items: center; gap: 6px; border: 0; background: none; padding: 0; color: var(--link); font: inherit; font-size: 15.5px; font-weight: 600; cursor: pointer; }
+    .svc-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+    .svc-hint { display: flex; gap: 10px; margin-top: 18px; padding: 14px 16px; border-radius: 8px; background: var(--paper-2); border: 1px solid var(--line); font-size: 14px; line-height: 1.55; color: var(--ink-2); }
+    .svc-hint svg { flex: none; margin-top: 2px; }
+
+    /* results */
+    .svc-criteria { display: flex; flex-wrap: wrap; gap: 8px 36px; margin: 0 0 20px; padding: 16px 22px; border-radius: 10px; background: var(--paper-2); border: 1px solid var(--line); font-size: 15.5px; }
+    .svc-criteria span { color: var(--ink-2); font-weight: 600; }
+    .svc-criteria b { color: var(--ink); }
+    .svc-table-wrap { overflow-x: auto; border: 1px solid var(--line-cool); border-radius: 12px; }
+    .svc-table { width: 100%; min-width: 920px; border-collapse: collapse; text-align: left; font-size: 15px; }
+    .svc-table th { padding: 16px 18px; background: var(--paper-2); font-size: 12.5px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); }
+    .svc-table td { padding: 16px 18px; border-top: 1px solid var(--line); color: var(--ink); vertical-align: middle; }
+    .svc-table .mono { font-variant-numeric: tabular-nums; letter-spacing: .02em; }
+    .svc-table .up { text-transform: uppercase; }
+    .svc-table .svc-name { font-weight: 600; color: var(--ink); }
+    .svc-table td:last-child { text-align: right; }
+    .svc-unnamed { border: 0; background: none; padding: 0; font: inherit; font-weight: 600; color: var(--link); cursor: pointer; text-decoration: underline dashed; text-underline-offset: 5px; }
+
+    /* step 2 */
+    .svc-statusbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin: 32px 0 22px; }
+    .svc-status { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; padding: 11px 20px; border-radius: 999px; background: var(--teal); color: #fff; font-size: 15.5px; font-weight: 600; }
+    .svc-record { margin-bottom: 24px; }
+    .svc-dl { margin: 0; }
+    .svc-dl div { display: grid; grid-template-columns: 15rem 1fr; gap: 16px; padding: 11px 0; border-top: 1px solid var(--line); font-size: 15px; }
+    .svc-dl div:first-child { border-top: 0; }
+    .svc-dl dt { color: var(--ink-3); font-weight: 600; }
+    .svc-dl dd { margin: 0; color: var(--ink); overflow-wrap: anywhere; }
+    .svc-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+    .svc-card {
+      display: flex; flex-direction: column; gap: 6px; padding: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); color: var(--ink);
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+    }
+    a.svc-card:hover { border-color: var(--navy); box-shadow: 0 14px 32px rgba(11,26,60,.08); transform: translateY(-2px); }
+    .svc-card-num { display: grid; place-items: center; width: 40px; height: 40px; margin-bottom: 14px; border-radius: 50%; background: var(--mint); color: var(--teal); font-weight: 700; }
+    .svc-card b { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; font-size: 18px; line-height: 1.35; }
+    .svc-card b svg { flex: none; margin-top: 4px; color: var(--line-cool); transition: color .2s; }
+    a.svc-card:hover b svg { color: var(--navy); }
+    .svc-card span { font-size: 15.5px; line-height: 1.55; color: var(--ink-2); }
+    .svc-card small { margin-top: auto; padding-top: 10px; font-size: 13.5px; color: var(--ink-3); }
+    .svc-card[aria-disabled="true"] { opacity: .6; }
+    .svc-fees-note { margin-top: 18px; font-size: 14px; color: var(--ink-3); }
+
+    /* application form, laid out like the GHMC forms in the portal's own colours */
+    .svc-form { margin-top: 8px; border: 1px solid var(--line-cool); border-radius: 12px; overflow: hidden; background: var(--paper); }
+    .svc-form-title { margin: 0; padding: 18px 28px; background: var(--navy); color: #fff; font-size: 19px; font-weight: 700; letter-spacing: .04em; text-align: center; text-transform: uppercase; outline: none; }
+    .svc-instr { padding: 16px 28px; background: var(--paper-2); border-bottom: 1px solid var(--line); font-size: 14.5px; line-height: 1.6; color: var(--ink-2); }
+    .svc-instr b { color: var(--ink); }
+    .svc-section > h3 { margin: 0; padding: 13px 28px; background: var(--mint); color: var(--ink); font-size: 15.5px; font-weight: 700; }
+    .svc-section > h3 small { font-weight: 500; color: var(--ink-2); }
+    .svc-section > .svc-grid { padding: 22px 28px 26px; }
+    .svc-form fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
+    .svc-declare { display: flex; gap: 12px; align-items: flex-start; margin: 0; padding: 20px 28px 0; font-size: 15px; line-height: 1.55; color: var(--ink-2); }
+    .svc-declare input { flex: none; width: 20px; height: 20px; margin-top: 2px; accent-color: var(--navy); }
+    .svc-form-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; padding: 22px 28px 28px; }
+    .svc-pay { margin: 0 28px 28px; border: 1.5px solid var(--navy); border-radius: 12px; }
+    .svc-pay h3 { margin: 0; padding: 16px 22px; border-bottom: 1px solid var(--line-cool); font-size: 17px; outline: none; }
+    .svc-pay table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+    .svc-pay td { padding: 12px 22px; border-bottom: 1px solid var(--line); }
+    .svc-pay td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+    .svc-pay tr.total td { font-weight: 700; font-size: 17px; border-bottom: 0; }
+    .svc-pay-modes { display: flex; flex-wrap: wrap; gap: 10px 22px; padding: 4px 22px 16px; font-size: 15px; }
+    .svc-pay-modes label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+    .svc-pay-modes input { width: 18px; height: 18px; accent-color: var(--navy); }
+    .svc-pay .svc-actions { padding: 0 22px 22px; margin: 0; }
+
+    /* acknowledgement */
+    .svc-done { max-width: 760px; margin: 8px auto 0; }
+    .svc-done-head { text-align: center; }
+    .svc-done-icon { display: grid; place-items: center; width: 72px; height: 72px; margin: 0 auto 16px; border-radius: 50%; background: var(--mint); color: var(--teal); }
+    .svc-done-head h1 { margin: 0; font-size: clamp(26px, 2.6vw, 36px); outline: none; }
+    .svc-done-head p { margin: 10px 0 0; font-size: 16.5px; color: var(--ink-2); }
+    .svc-appno { display: inline-block; margin-top: 14px; padding: 8px 18px; border-radius: 8px; background: var(--paper-2); border: 1px solid var(--line); font-size: 22px; font-weight: 700; letter-spacing: .05em; }
+    .svc-receipt { margin-top: 28px; padding: 6px 26px; border: 1px solid var(--line-cool); border-radius: 12px; }
+    .svc-done .svc-actions { justify-content: center; margin-top: 26px; }
+
+    /* your applications and the rest of the life stage */
+    .svc-apps { margin-top: 56px; }
+    .svc-apps h2 { margin: 0 0 6px; font-size: 22px; }
+    .svc-apps > p { margin: 0 0 14px; color: var(--ink-2); }
+    .svc-app { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+    .svc-app:last-child { border-bottom: 1px solid var(--line); }
+    .svc-app > div { flex: 1; min-width: 220px; }
+    .svc-app b { display: block; font-size: 16px; }
+    .svc-app span { display: block; margin-top: 4px; font-size: 14px; color: var(--ink-3); }
+    .svc-app-actions { display: flex; gap: 18px; }
+    .chip--done { background: #e6f4ea; color: #1e7a45; }
+
+    /* the sample certificate: on screen, and on its own when printed */
+    .svc-cert {
+      position: relative; overflow: hidden; max-width: 820px; margin: 0 auto; padding: 36px 40px; border: 3px double var(--gold);
+      background: #fffdf7; color: var(--ink); font-size: 15px; line-height: 1.5;
+    }
+    .svc-cert::after {
+      content: "SAMPLE · NOT A VALID CERTIFICATE"; position: absolute; top: 50%; left: 50%; z-index: 0; white-space: nowrap; pointer-events: none;
+      transform: translate(-50%, -50%) rotate(-24deg); font-size: 40px; font-weight: 700; letter-spacing: .08em; color: rgba(192,57,43,.12);
+    }
+    .svc-cert > * { position: relative; z-index: 1; }
+    .svc-cert header { padding-bottom: 16px; margin-bottom: 8px; border-bottom: 1px solid var(--line); text-align: center; }
+    .svc-cert header p { margin: 0; font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-3); }
+    .svc-cert header h2 { margin: 8px 0 4px; font-size: 26px; letter-spacing: .06em; }
+    .svc-cert footer { margin-top: 18px; font-size: 12.5px; color: var(--ink-3); }
+    #print-root { display: none; }
+    @media print {
+      body.printing > :not(#print-root) { display: none !important; }
+      body.printing #print-root { display: block; padding: 24px; }
+    }
+
+    @media (max-width: 1000px) {
+      .svc-grid, .svc-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 680px) {
+      .svc-wrap { padding-top: 22px; }
+      .svc-banner { padding: 28px 22px; min-height: 0; }
+      .svc-banner-icon { display: none; }
+      .svc-choices, .svc-grid, .svc-grid--2, .svc-cards { grid-template-columns: 1fr; }
+      .svc-steps li + li::before { width: 18px; margin: 0 8px; }
+      .svc-steps li { font-size: 14px; }
+      .svc-panel-head, .svc-panel-body, .svc-section > .svc-grid, .svc-instr, .svc-form-title { padding-left: 18px; padding-right: 18px; }
+      .svc-declare, .svc-form-foot { padding-left: 18px; padding-right: 18px; }
+      .svc-pay { margin: 0 18px 22px; }
+      .svc-inline { flex-direction: column; align-items: stretch; }
+      .svc-dl div { grid-template-columns: 1fr; gap: 2px; }
+      .svc-cert { padding: 26px 20px; }
+      .svc-cert::after { font-size: 24px; }
+    }
+
+    /* themed dropdown lists where the browser allows it (Chrome / Edge 135+); others keep their native list */
+    @supports (appearance: base-select) {
+      .svc-page select, .svc-page select::picker(select) { appearance: base-select; }
+      .svc-page select { display: flex; align-items: center; cursor: pointer; }
+      .svc-page select::picker-icon { color: var(--ink-2); transition: rotate .2s; }
+      .svc-page select:open::picker-icon { rotate: 180deg; }
+      .svc-page select::picker(select) {
+        max-height: 320px; margin-top: 6px; padding: 6px; border: 1px solid var(--line-cool); border-radius: 10px;
+        background: var(--paper); box-shadow: 0 18px 40px rgba(11,26,60,.14);
+      }
+      .svc-page select option { min-height: 44px; padding: 10px 14px; border-radius: 6px; font-size: 15.5px; color: var(--ink); cursor: pointer; }
+      .svc-page select option::checkmark { display: none; }
+      .svc-page select option:hover, .svc-page select option:focus-visible { background: var(--mint); color: var(--ink); outline: none; }
+      .svc-page select option:checked { background: var(--mint-2); font-weight: 600; }
+      /* the "Select …" placeholder never looks chosen */
+      .svc-page select option:first-child { color: var(--ink-3); }
+      .svc-page select option:first-child:checked:not(:hover, :focus-visible) { background: none; font-weight: 400; }
+    }
+
+    /* on phones the results table becomes one card per record (a wide scrolling table widens the whole page there) */
+    @media (max-width: 680px) {
+      .svc-table-wrap { overflow: visible; border: 0; border-radius: 0; }
+      .svc-table { min-width: 0; }
+      .svc-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+      .svc-table, .svc-table tbody, .svc-table tr, .svc-table td { display: block; width: 100%; }
+      .svc-table tr { margin-bottom: 12px; padding: 4px 16px 16px; border: 1px solid var(--line-cool); border-radius: 12px; background: var(--paper); }
+      .svc-table td { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 10px; padding: 10px 0; border-top: 1px solid var(--line); text-align: left; }
+      .svc-table td:first-child { border-top: 0; }
+      .svc-table td::before { content: attr(data-label); font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); }
+      .svc-table td:last-child { display: block; padding-top: 14px; border-top: 0; text-align: left; }
+      .svc-table td:last-child::before { content: none; }
+      .svc-table td:last-child .svc-btn { width: 100%; }
+      .svc-table td .svc-unnamed { justify-self: start; text-align: left; }
+    }
+
+    /* "Fill sample data" for demos, at the top of each form page */
+    .svc-demo-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 8px 14px; margin-bottom: 14px; }
+    .svc-demo {
+      display: inline-flex; align-items: center; gap: 8px; height: 42px; padding: 0 18px; border: 1px dashed var(--teal); border-radius: 999px;
+      background: var(--mint); color: var(--teal); font: inherit; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .2s;
+    }
+    .svc-demo:hover { background: var(--mint-2); }
+    .svc-demo-note { font-size: 14.5px; color: var(--teal); }
+    .svc-demo-note:empty { display: none; }
 
     /* ------------------------------------------------------------ login modal */
     .login-overlay {

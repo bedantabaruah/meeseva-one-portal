@@ -1,0 +1,4 @@
+# only the site itself is published; tests and documentation stay in the repository
+tests
+docs
+*.md

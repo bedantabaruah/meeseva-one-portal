@@ -1,0 +1,12 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "",
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "redirects": [
+    { "source": "/oneportal", "destination": "/", "permanent": false },
+    { "source": "/oneportal/", "destination": "/", "permanent": false },
+    { "source": "/oneportal/:path*", "destination": "/", "permanent": false }
+  ]
+}

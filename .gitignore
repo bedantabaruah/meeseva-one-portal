@@ -10,3 +10,6 @@ __pycache__/
 .vscode/
 .idea/
 node_modules/
+
+# Vercel CLI link
+.vercel/
